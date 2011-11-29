@@ -1,8 +1,7 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Model_Resource extends Mango
+class Model_Filedrop_Data_Mango extends Mango
 {
-	
 	public $_fields = array(
 		'_id' => array(
 			'type' => 'MongoId',
@@ -32,8 +31,5 @@ class Model_Resource extends Mango
 		'downloads' => array(
 			'type' => 'counter',
 		),
-	);
-	
+	);	
 }
-
-?>

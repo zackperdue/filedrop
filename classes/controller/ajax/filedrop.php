@@ -1,8 +1,12 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
+/**
+ * Ajax Interactions
+ * 
+ * @todo	Documentation
+ */
 class Controller_Ajax_Filedrop extends Controller
-{
-	
+{	
 	public $auto_render = false;
 	
 	public $config;
@@ -21,11 +25,13 @@ class Controller_Ajax_Filedrop extends Controller
 					->rule('file', 'Upload::type', array(':value', $this->config['allowed']));
 					
 					
-		if($file->check())
+		if ( $file->check() )
 		{
 			$status = 'success';
 			$uploaded = Upload::save($file['file']);
-		}else{
+		}
+		else
+		{
 			$errors = $file->errors();
 			$data = array(
 				'status' => 'failed',
@@ -45,7 +51,7 @@ class Controller_Ajax_Filedrop extends Controller
 	
 	public function list_resources()
 	{
-		if($_POST)
+		if ( $_POST )
 		{
 			
 		}
@@ -59,32 +65,36 @@ class Controller_Ajax_Filedrop extends Controller
 			'errors' => false,
 		);
 		
-		if($_POST)
+		if ( $_POST )
 		{
-			$post = Validation::factory($_POST)
-						->rule('dirname', 'Valid::alpha_dash');
+			$post = Validation::factory($_POST)->rule('dirname', 'Valid::alpha_dash');
 			
-			if($post->check())
+			if ( $post->check() )
 			{
 				$location = $this->config['base_dir'].$post['dirname'];
 				$data['location'] = $location;
 				
-				if(!is_dir($location))
+				if ( ! is_dir($location) )
 				{				
-					if(mkdir($location, 0777, false))
+					if ( mkdir($location, 0777, false) )
 					{
 						$data['status'] = 'success';
 						$data['message'] = 'Your directory was created.';	
-					}else
-					{
-						$data['message'] = 'Something went wrong.';
 					}
-				}else{
+					else
+					{
+						$data['status'] = 'failed';
+						$data['message'] = 'Could not create directory.';
+					}
+				}
+				else
+				{
 					$data['status'] = 'failed';
 					$data['message'] = 'Directory already exists.';
 				}
-				
-			}else{
+			}
+			else
+			{
 				$errors = $post->errors('filedrop');
 				$data['errors'] = $errors;
 			}			
@@ -105,7 +115,6 @@ class Controller_Ajax_Filedrop extends Controller
 	
 	public function after()
 	{
-		
 		parent::after();
 	}
 }

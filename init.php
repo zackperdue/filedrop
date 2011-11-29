@@ -1,4 +1,4 @@
-<?php
+<?php defined('SYSPATH') or die('No direct script access.');
 
 Route::set('ajax', 'ajax/<action>')
 	->defaults(array(
@@ -7,9 +7,8 @@ Route::set('ajax', 'ajax/<action>')
 		'action' => 'index',
 	));
 
-Route::set('filedrop', 'dashboard/filedrop(/<action>)')
+Route::set('filedrop', 'filedrop(/<action>)')
 	->defaults(array(
-		'directory' => 'dashboard',
 		'controller' => 'filedrop',
 		'action' => 'index',
 	));

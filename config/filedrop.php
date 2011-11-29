@@ -2,11 +2,13 @@
 
 return array(
 	
-	'base_dir' => '/Users/zack/Sites/filedrop/upload/',
-	'allowed' => array(
-		'gif', 'jpg', 'jpeg', 'png',
-	)
+	// ideally will eventually support orm/jelly/mango/sprig, but for now just mango
+	'driver'	=> 'mango', 
+	
+	// absolute server path to your upload folder
+	'base_dir'	=> '/var/www/uploads',
+	
+	// allowed file types () 		
+	'allowed'	=> array('gif', 'jpg', 'jpeg', 'png')
 	
 );
-
-?>
