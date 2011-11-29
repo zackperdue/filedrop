@@ -66,7 +66,7 @@ class Controller_Ajax_Filedrop extends Controller
 			
 			if($post->check())
 			{
-				$location = '/Users/zack/Sites/filedrop/upload/'.$post['dirname']; //Kohana::$base_url.$this->config['base_dir'].'/'.$post['current_dir'].'/'.$post['dirname'];
+				$location = $this->config['base_dir'].$post['dirname'];
 				$data['location'] = $location;
 				
 				if(!is_dir($location))
@@ -85,7 +85,7 @@ class Controller_Ajax_Filedrop extends Controller
 				}
 				
 			}else{
-				$errors = $post->errors();
+				$errors = $post->errors('filedrop');
 				$data['errors'] = $errors;
 			}			
 						

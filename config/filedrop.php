@@ -2,7 +2,7 @@
 
 return array(
 	
-	'base_dir' => 'upload',
+	'base_dir' => '/Users/zack/Sites/filedrop/upload/',
 	'allowed' => array(
 		'gif', 'jpg', 'jpeg', 'png',
 	)
