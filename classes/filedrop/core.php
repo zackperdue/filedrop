@@ -1,9 +1,14 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
 /**
- * Filedrop Core
+ * Filedrop - File management module for Kohana PHP Framework
+ * Based on Wouterrr's Mango and A1, and Bryan Galli's Contacts
  * 
- * @todo:	Documentation
+ * @copyright	(c) 2011 Zack Perdue
+ * @copyright	(c) 2011 Clay McIlrath
+ * @license		MIT
+ * 
+ * @todo		Documentation
  */
 abstract class Filedrop_Core
 {
