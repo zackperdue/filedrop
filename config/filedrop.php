@@ -9,6 +9,6 @@ return array(
 	'base_dir'	=> '/var/www/uploads',
 	
 	// allowed file types () 		
-	'allowed'	=> array('gif', 'jpg', 'jpeg', 'png')
+	'allowed'	=> array('gif', 'jpg', 'jpeg', 'png'),
 	
 );
